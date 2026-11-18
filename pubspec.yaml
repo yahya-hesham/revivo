@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.1.0+1
 
 environment:
-  sdk: ^3.13.7
+  sdk: ^3.10.4
 
 dependencies:
   dio: ^5.11.1
@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^9.1.1
   flutter_svg: ^2.0.17
-  google_fonts: ^9.0.0
+  google_fonts: ^8.2.1
 
 dev_dependencies:
   flutter_lints: ^6.0.0
