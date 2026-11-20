@@ -5,64 +5,71 @@ import 'colors.dart';
 /// Typography styles extracted directly from Figma Design System (Revivo).
 abstract final class AppTextStyles {
   // ---------------------------------------------------------------------------
-  // English Styles (Geist)
+  // English Styles (Manrope)
   // ---------------------------------------------------------------------------
 
-  /// Number: Geist Medium, 32px, Line Height 40px (1.25)
-  static TextStyle get number => GoogleFonts.geist(
-        fontSize: 32,
-        fontWeight: FontWeight.w500,
-        height: 40 / 32,
+  /// Revivo/Display
+  static TextStyle get display => GoogleFonts.manrope(
+        fontSize: 38,
+        fontWeight: FontWeight.w700,
+        height: 44 / 38,
+        letterSpacing: 0,
         color: AppColors.ink,
       );
 
-  /// Brand: Geist SemiBold, 28px, Line Height 32px (1.14)
-  static TextStyle get brand => GoogleFonts.geist(
+  /// Revivo/Title
+  static TextStyle get title => GoogleFonts.manrope(
         fontSize: 28,
-        fontWeight: FontWeight.w600,
-        height: 32 / 28,
+        fontWeight: FontWeight.w700,
+        height: 34 / 28,
+        letterSpacing: 0,
         color: AppColors.ink,
       );
 
-  /// Title: Geist Medium, 24px, Line Height 32px (1.33)
-  static TextStyle get title => GoogleFonts.geist(
-        fontSize: 24,
-        fontWeight: FontWeight.w500,
-        height: 32 / 24,
+  /// Revivo/Heading
+  static TextStyle get heading => GoogleFonts.manrope(
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+        height: 28 / 20,
+        letterSpacing: 0,
         color: AppColors.ink,
       );
 
-  /// Section: Geist Medium, 18px, Line Height 24px (1.33)
-  static TextStyle get section => GoogleFonts.geist(
-        fontSize: 18,
-        fontWeight: FontWeight.w500,
-        height: 24 / 18,
-        color: AppColors.ink,
-      );
-
-  /// Body: Geist Regular, 16px, Line Height 24px (1.50)
-  static TextStyle get body => GoogleFonts.geist(
+  /// Revivo/Body
+  static TextStyle get body => GoogleFonts.manrope(
         fontSize: 16,
         fontWeight: FontWeight.w400,
         height: 24 / 16,
+        letterSpacing: 0,
         color: AppColors.ink,
       );
 
-  /// Label: Geist Medium, 14px, Line Height 24px (1.71)
-  static TextStyle get label => GoogleFonts.geist(
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
-        height: 24 / 14,
+  /// Revivo/Label
+  static TextStyle get label => GoogleFonts.manrope(
+        fontSize: 15,
+        fontWeight: FontWeight.w600,
+        height: 22 / 15,
+        letterSpacing: 0,
         color: AppColors.ink,
       );
 
-  /// Caption: Geist Regular, 12px, Line Height 16px (1.33)
-  static TextStyle get caption => GoogleFonts.geist(
+  /// Revivo/Caption
+  static TextStyle get caption => GoogleFonts.manrope(
         fontSize: 12,
-        fontWeight: FontWeight.w400,
-        height: 16 / 12,
+        fontWeight: FontWeight.w500,
+        height: 18 / 12,
+        letterSpacing: 0,
         color: AppColors.muted,
       );
+
+  @Deprecated('Use display for the current English typography.')
+  static TextStyle get number => display;
+
+  @Deprecated('Use title for the current English typography.')
+  static TextStyle get brand => title;
+
+  @Deprecated('Use heading for the current English typography.')
+  static TextStyle get section => heading;
 
   // ---------------------------------------------------------------------------
   // Arabic Styles (Noto Sans Arabic)

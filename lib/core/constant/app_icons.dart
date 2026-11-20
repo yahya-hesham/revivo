@@ -12,4 +12,3 @@ abstract final class AppIcons {
   static const String navMaintenance = '$_base/nav_maintenance.svg';
   static const String navHistory = '$_base/nav_history.svg';
 }
-

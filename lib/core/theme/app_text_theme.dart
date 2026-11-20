@@ -3,13 +3,13 @@ import '../styles/text_styles.dart';
 
 /// Flutter Material [TextTheme] mapped directly from Figma Design Tokens.
 abstract final class AppTextTheme {
-  /// English [TextTheme] based on Geist font family
+  /// English [TextTheme] based on Manrope font family
   static TextTheme get lightTextTheme => TextTheme(
-        displayLarge: AppTextStyles.number,
-        headlineLarge: AppTextStyles.brand,
+        displayLarge: AppTextStyles.display,
+        headlineLarge: AppTextStyles.title,
         headlineMedium: AppTextStyles.title,
-        titleLarge: AppTextStyles.section,
-        titleMedium: AppTextStyles.body.copyWith(fontWeight: FontWeight.w500),
+        titleLarge: AppTextStyles.heading,
+        titleMedium: AppTextStyles.label,
         bodyLarge: AppTextStyles.body,
         bodyMedium: AppTextStyles.label,
         bodySmall: AppTextStyles.caption,
