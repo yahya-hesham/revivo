@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import '../constants/app_constants.dart';
-import '../styles/colors.dart';
+import '../../constants/app_constants.dart';
+import '../../styles/colors.dart';
 
 /// Reusable skeleton shimmer block for loading states.
 class AppShimmerBox extends StatelessWidget {
