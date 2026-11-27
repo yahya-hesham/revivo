@@ -2,6 +2,12 @@
 abstract final class AppAssets {
   static const String _iconsBase = 'assets/icons';
 
+  // Navigation icons (Figma 8:2, 8:10, 8:18)
+  static const String navGarage = '$_iconsBase/nav_garage.svg';
+  static const String navAlerts = '$_iconsBase/nav_alerts.svg';
+  static const String navAccount = '$_iconsBase/nav_account.svg';
+
+  // Common icons
   static const String arrowBack = '$_iconsBase/arrow_back.svg';
   static const String chevronForward = '$_iconsBase/chevron_forward.svg';
   static const String settings = '$_iconsBase/settings.svg';

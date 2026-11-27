@@ -85,7 +85,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 3 — Dashboard Shell (Bottom Navigation) ⏳ Next
+## Milestone 3 — Dashboard Shell (Bottom Navigation) ✅ Done
 
 **Goal:** Authenticated 3-tab shell preserving tab state and scroll position.
 
@@ -103,7 +103,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 4 — Garage, Add Vehicle & Vehicle Dashboard
+## Milestone 4 — Garage, Add Vehicle & Vehicle Dashboard ⏳ Next
 
 **Goal:** Owned & shared vehicle lists, 3-step car catalog wizard + Unsplash preview, Vehicle Dashboard, and Vehicle Settings.
 

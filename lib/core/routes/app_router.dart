@@ -6,6 +6,7 @@ import '../../features/auth/presentation/pages/login_screen.dart';
 import '../../features/auth/presentation/pages/register_screen.dart';
 import '../../features/auth/presentation/pages/session_expired_screen.dart';
 import '../../features/auth/presentation/pages/welcome_screen.dart';
+import '../../features/dashboard/presentation/pages/dashboard_screen.dart';
 import '../../features/splash/presentation/cubit/splash_cubit.dart';
 import '../../features/splash/presentation/pages/splash_screen.dart';
 import 'routes.dart';
@@ -40,7 +41,8 @@ abstract final class AppRouter {
       GoRoute(
         path: Routes.login,
         builder: (context, state) {
-          final initialEmail = state.extra is String ? state.extra as String : null;
+          final initialEmail =
+              state.extra is String ? state.extra as String : null;
           return BlocProvider(
             create: (_) => AuthCubit(),
             child: LoginScreen(initialEmail: initialEmail),
@@ -51,40 +53,10 @@ abstract final class AppRouter {
         path: Routes.sessionExpired,
         builder: (context, state) => const SessionExpiredScreen(),
       ),
-      // Temporary placeholder until Milestone 3 (Dashboard Shell)
       GoRoute(
         path: Routes.dashboard,
-        builder: (context, state) => const _MilestonePlaceholder(
-          title: 'Dashboard',
-          subtitle: 'Milestone 3 — Dashboard Shell',
-        ),
+        builder: (context, state) => const DashboardScreen(),
       ),
     ],
   );
-}
-
-class _MilestonePlaceholder extends StatelessWidget {
-  const _MilestonePlaceholder({
-    required this.title,
-    required this.subtitle,
-  });
-
-  final String title;
-  final String subtitle;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(title, style: Theme.of(context).textTheme.headlineMedium),
-            const SizedBox(height: 8),
-            Text(subtitle, style: Theme.of(context).textTheme.bodySmall),
-          ],
-        ),
-      ),
-    );
-  }
 }
