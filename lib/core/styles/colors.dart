@@ -38,6 +38,3 @@ abstract final class AppColors {
   // Material 3 System Schemes
   static const Color onSurface = Color(0xFF1D1B20);
 }
-
-/// Alias for backwards compatibility with the initial placeholder class
-typedef Colors = AppColors;

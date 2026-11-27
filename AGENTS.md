@@ -11,6 +11,7 @@ Revivo is a Flutter app for car maintenance, odometer, warranty, expense and sha
 
 | Source of truth | Location |
 |---|---|
+| Step-by-step implementation plan | [`IMPLEMENTATION_PLAN.md`](IMPLEMENTATION_PLAN.md) — follow milestone order |
 | Architecture rules | [`ARCHITECTURE_README.md`](ARCHITECTURE_README.md) — follow it exactly |
 | Backend API reference (39 endpoints) | [`README.md`](README.md) |
 | Full backend handoff (DTOs, rules, errors) | `Backend/Revivo/docs/REVIVO_FLUTTER_BACKEND_HANDOFF.md` |
@@ -179,15 +180,16 @@ flutter run --dart-define=API_BASE_URL=http://localhost:5269
 | # | Milestone | Status | Notes |
 |---|---|---|---|
 | 0 | Foundation: folders, pubspec, core (theme, Dio, storage, router, widgets) | ✅ Done | `dart analyze` clean |
-| 1 | Splash + Auth (Welcome, Register, Login, Auth error, Session expired) | ⏳ Next | Page `2:3` |
-| 2 | Dashboard shell (Garage / Alerts / Account tabs) | ⬜ | Navigation `3:54` |
-| 3 | Garage & add vehicle (catalog, image, dashboard, settings) | ⬜ | Page `2:4` |
-| 4 | Maintenance, schedules, warranties | ⬜ | Page `2:5` |
-| 5 | Odometer & statistics | ⬜ | Page `2:6` |
-| 6 | Alerts & preferences | ⬜ | Page `2:7` |
-| 7 | Sharing & invitations | ⬜ | Page `2:7` |
-| 8 | Account | ⬜ | `6:158` |
-| 9 | Polish: Arabic/RTL review, dark mode, accessibility, tests | ⬜ | |
+| 1 | Splash & session bootstrap (`/auth/me`, 401 redirect wiring) | ⏳ Next | `IMPLEMENTATION_PLAN.md` #1 |
+| 2 | Auth (Welcome, Register, Login, Auth error, Session expired) | ⬜ | Page `2:3` |
+| 3 | Dashboard shell (Garage / Alerts / Account tabs) | ⬜ | Navigation `3:54` |
+| 4 | Garage & add vehicle (catalog, image, dashboard, settings) | ⬜ | Page `2:4` |
+| 5 | Maintenance, schedules, warranties | ⬜ | Page `2:5` |
+| 6 | Odometer & statistics | ⬜ | Page `2:6` |
+| 7 | Alerts & preferences | ⬜ | Page `2:7` |
+| 8 | Sharing & invitations | ⬜ | Page `2:7` |
+| 9 | Account (read-only profile, theme, EN/AR, logout) | ⬜ | `6:158` |
+| 10 | Polish: Arabic/RTL review, dark mode, accessibility, tests | ⬜ | |
 
 Status legend: ⬜ not started · ⏳ in progress / next · ✅ done
 
