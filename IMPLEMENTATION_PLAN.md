@@ -28,7 +28,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 1 — Splash & Session Bootstrap ⏳ Next
+## Milestone 1 — Splash & Session Bootstrap ✅ Done
 
 **Goal:** Check saved JWT on startup, validate session with `/api/auth/me`, wire global 401 redirect, and route to Dashboard (if valid) or Welcome (if logged out/expired).
 
@@ -54,7 +54,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 2 — Authentication (Welcome, Register, Login, Auth Error, Session Expired)
+## Milestone 2 — Authentication (Welcome, Register, Login, Auth Error, Session Expired) ⏳ Next
 
 **Goal:** Complete onboarding and authentication flow matching Figma page `03`.
 

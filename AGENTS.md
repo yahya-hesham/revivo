@@ -180,8 +180,8 @@ flutter run --dart-define=API_BASE_URL=http://localhost:5269
 | # | Milestone | Status | Notes |
 |---|---|---|---|
 | 0 | Foundation: folders, pubspec, core (theme, Dio, storage, router, widgets) | ✅ Done | `dart analyze` clean |
-| 1 | Splash & session bootstrap (`/auth/me`, 401 redirect wiring) | ⏳ Next | `IMPLEMENTATION_PLAN.md` #1 |
-| 2 | Auth (Welcome, Register, Login, Auth error, Session expired) | ⬜ | Page `2:3` |
+| 1 | Splash & session bootstrap (`/auth/me`, 401 redirect wiring) | ✅ Done | `dart analyze` & unit tests passing |
+| 2 | Auth (Welcome, Register, Login, Auth error, Session expired) | ⏳ Next | Page `2:3` |
 | 3 | Dashboard shell (Garage / Alerts / Account tabs) | ⬜ | Navigation `3:54` |
 | 4 | Garage & add vehicle (catalog, image, dashboard, settings) | ⬜ | Page `2:4` |
 | 5 | Maintenance, schedules, warranties | ⬜ | Page `2:5` |

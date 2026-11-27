@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/functions/extensions.dart';
 import 'core/routes/app_router.dart';
+import 'core/routes/routes.dart';
 import 'core/services/apis/dio_provider.dart';
 import 'core/services/local/shared_pref.dart';
 import 'core/styles/themes.dart';
@@ -12,7 +13,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await SharedPref.init();
-  DioProvider.init();
+  DioProvider.init(
+    onUnauthorizedCallback: () {
+      AppRouter.routes.go(Routes.sessionExpired);
+    },
+  );
   await EasyLocalization.ensureInitialized();
 
   Bloc.observer = MyBlocObserver();

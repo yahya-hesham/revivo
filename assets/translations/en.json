@@ -12,6 +12,11 @@
     "network_error": "Unable to reach the server. Check your connection and try again.",
     "unexpected_error": "Something went wrong. Please try again."
   },
+  "splash": {
+    "tagline": "Keep your car's story",
+    "checking_session": "Checking your session...",
+    "connection_error": "Couldn't verify your session. Check your connection and try again."
+  },
   "nav": {
     "garage": "Garage",
     "alerts": "Alerts",
