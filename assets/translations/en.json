@@ -1,0 +1,20 @@
+{
+  "app_name": "Revivo",
+  "common": {
+    "loading": "Loading...",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "done": "Done",
+    "ok": "OK",
+    "network_error": "Unable to reach the server. Check your connection and try again.",
+    "unexpected_error": "Something went wrong. Please try again."
+  },
+  "nav": {
+    "garage": "Garage",
+    "alerts": "Alerts",
+    "account": "Account"
+  }
+}
