@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/auth/presentation/cubit/auth_cubit.dart';
+import '../../features/auth/presentation/pages/login_screen.dart';
+import '../../features/auth/presentation/pages/register_screen.dart';
+import '../../features/auth/presentation/pages/session_expired_screen.dart';
+import '../../features/auth/presentation/pages/welcome_screen.dart';
 import '../../features/splash/presentation/cubit/splash_cubit.dart';
 import '../../features/splash/presentation/pages/splash_screen.dart';
 import 'routes.dart';
@@ -21,21 +26,32 @@ abstract final class AppRouter {
           child: const SplashScreen(),
         ),
       ),
-      // Temporary placeholders until Milestones 2 (Auth) & 3 (Dashboard)
       GoRoute(
         path: Routes.welcome,
-        builder: (context, state) => const _MilestonePlaceholder(
-          title: 'Welcome',
-          subtitle: 'Milestone 2 — Authentication',
+        builder: (context, state) => const WelcomeScreen(),
+      ),
+      GoRoute(
+        path: Routes.register,
+        builder: (context, state) => BlocProvider(
+          create: (_) => AuthCubit(),
+          child: const RegisterScreen(),
         ),
+      ),
+      GoRoute(
+        path: Routes.login,
+        builder: (context, state) {
+          final initialEmail = state.extra is String ? state.extra as String : null;
+          return BlocProvider(
+            create: (_) => AuthCubit(),
+            child: LoginScreen(initialEmail: initialEmail),
+          );
+        },
       ),
       GoRoute(
         path: Routes.sessionExpired,
-        builder: (context, state) => const _MilestonePlaceholder(
-          title: 'Session Expired',
-          subtitle: 'Milestone 2 — Authentication',
-        ),
+        builder: (context, state) => const SessionExpiredScreen(),
       ),
+      // Temporary placeholder until Milestone 3 (Dashboard Shell)
       GoRoute(
         path: Routes.dashboard,
         builder: (context, state) => const _MilestonePlaceholder(

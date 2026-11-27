@@ -54,7 +54,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 2 — Authentication (Welcome, Register, Login, Auth Error, Session Expired) ⏳ Next
+## Milestone 2 — Authentication (Welcome, Register, Login, Auth Error, Session Expired) ✅ Done
 
 **Goal:** Complete onboarding and authentication flow matching Figma page `03`.
 
@@ -85,7 +85,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 3 — Dashboard Shell (Bottom Navigation)
+## Milestone 3 — Dashboard Shell (Bottom Navigation) ⏳ Next
 
 **Goal:** Authenticated 3-tab shell preserving tab state and scroll position.
 

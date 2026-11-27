@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../constants/app_constants.dart';
 import 'colors.dart';
 import 'text_styles.dart';
@@ -67,6 +68,7 @@ abstract final class AppThemes {
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.ground,
         foregroundColor: AppColors.ink,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         elevation: 0,
         scrolledUnderElevation: 0,
         centerTitle: false,
@@ -117,7 +119,7 @@ abstract final class AppThemes {
           foregroundColor: AppColors.onBrand,
           minimumSize: const Size(double.infinity, AppConstants.buttonHeight),
           shape: const RoundedRectangleBorder(
-            borderRadius: AppConstants.borderRadius28,
+            borderRadius: AppConstants.borderRadius20,
           ),
           elevation: 0,
           textStyle: textTheme.labelLarge,
@@ -125,12 +127,14 @@ abstract final class AppThemes {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: AppColors.teal,
+          backgroundColor: AppColors.surface,
+          foregroundColor: AppColors.ink,
           minimumSize: const Size(double.infinity, AppConstants.buttonHeight),
-          side: const BorderSide(color: AppColors.line),
+          side: BorderSide.none,
           shape: const RoundedRectangleBorder(
-            borderRadius: AppConstants.borderRadius28,
+            borderRadius: AppConstants.borderRadius20,
           ),
+          elevation: 0,
           textStyle: textTheme.labelLarge,
         ),
       ),
@@ -174,6 +178,7 @@ abstract final class AppThemes {
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.darkGround,
         foregroundColor: AppColors.darkInk,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
         elevation: 0,
         scrolledUnderElevation: 0,
         centerTitle: false,
@@ -224,7 +229,7 @@ abstract final class AppThemes {
           foregroundColor: AppColors.ink,
           minimumSize: const Size(double.infinity, AppConstants.buttonHeight),
           shape: const RoundedRectangleBorder(
-            borderRadius: AppConstants.borderRadius28,
+            borderRadius: AppConstants.borderRadius20,
           ),
           elevation: 0,
           textStyle: textTheme.labelLarge,
@@ -232,12 +237,14 @@ abstract final class AppThemes {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
+          backgroundColor: AppColors.darkSurface,
           foregroundColor: AppColors.darkInk,
           minimumSize: const Size(double.infinity, AppConstants.buttonHeight),
-          side: const BorderSide(color: Color(0xFF2B4245)),
+          side: BorderSide.none,
           shape: const RoundedRectangleBorder(
-            borderRadius: AppConstants.borderRadius28,
+            borderRadius: AppConstants.borderRadius20,
           ),
+          elevation: 0,
           textStyle: textTheme.labelLarge,
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/functions/extensions.dart';
 import 'core/routes/app_router.dart';
@@ -50,6 +51,15 @@ class MainApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       routerConfig: AppRouter.routes,
+      builder: (context, child) {
+        final isDark = Theme.of(context).brightness == Brightness.dark;
+        return AnnotatedRegion<SystemUiOverlayStyle>(
+          value: isDark
+              ? SystemUiOverlayStyle.light
+              : SystemUiOverlayStyle.dark,
+          child: child ?? const SizedBox.shrink(),
+        );
+      },
     );
   }
 }
