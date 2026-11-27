@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen>
     );
     _scaleAnimation = Tween<double>(
       begin: 0.94,
-      end: 2.0,
+      end: 1.0,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
     _controller.forward();
   }
@@ -68,61 +68,68 @@ class _SplashScreenState extends State<SplashScreen>
             return SafeArea(
               child: Padding(
                 padding: AppConstants.paddingScreen,
-                child: Column(
+                child: Stack(
                   children: [
-                    const Spacer(),
-                    FadeTransition(
-                      opacity: _fadeAnimation,
-                      child: ScaleTransition(
-                        scale: _scaleAnimation,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.baseline,
-                              textBaseline: TextBaseline.alphabetic,
-                              children: [
-                                Text(
-                                  'app_name'.tr(),
-                                  style: context.textTheme.displayLarge
-                                      ?.copyWith(
-                                        color: AppColors.onBrand,
-                                        letterSpacing: context.isArabic
-                                            ? 0
-                                            : -0.5,
-                                      ),
-                                ),
-                                const SizedBox(width: AppConstants.space4),
-                                Container(
-                                  width: AppConstants.space8,
-                                  height: AppConstants.space8,
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.accent,
-                                    shape: BoxShape.circle,
+                    Center(
+                      child: FadeTransition(
+                        opacity: _fadeAnimation,
+                        child: ScaleTransition(
+                          scale: _scaleAnimation,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    'app_name'.tr(),
+                                    style: context.textTheme.displayLarge
+                                        ?.copyWith(
+                                          color: AppColors.onBrand,
+                                          letterSpacing: context.isArabic
+                                              ? 0
+                                              : -0.5,
+                                        ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: AppConstants.space12),
-                            Text(
-                              'splash.tagline'.tr(),
-                              textAlign: TextAlign.center,
-                              style: context.textTheme.bodyMedium?.copyWith(
-                                color: AppColors.onBrand.withValues(
-                                  alpha: 0.76,
-                                ),
-                                fontWeight: FontWeight.w500,
+                                  const SizedBox(width: AppConstants.space4),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: Container(
+                                      width: AppConstants.space8,
+                                      height: AppConstants.space8,
+                                      decoration: const BoxDecoration(
+                                        color: AppColors.accent,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
+                              const SizedBox(height: AppConstants.space12),
+                              Text(
+                                'splash.tagline'.tr(),
+                                textAlign: TextAlign.center,
+                                style: context.textTheme.bodyMedium?.copyWith(
+                                  color: AppColors.onBrand.withValues(
+                                    alpha: 0.76,
+                                  ),
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                    const Spacer(),
-                    SizedBox(
-                      height: 120,
-                      child: Center(child: _buildFooter(context, state)),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          bottom: AppConstants.space24,
+                        ),
+                        child: _buildFooter(context, state),
+                      ),
                     ),
                   ],
                 ),

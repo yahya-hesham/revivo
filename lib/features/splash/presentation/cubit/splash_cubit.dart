@@ -16,7 +16,7 @@ class SplashCubit extends Cubit<SplashState> {
     Future<UserModel> Function()? fetchCurrentUser,
     Future<void> Function(Map<String, dynamic> user)? saveUser,
     Future<void> Function()? clearSession,
-    Duration minDisplayDuration = const Duration(milliseconds: 900),
+    Duration minDisplayDuration = const Duration(milliseconds: 2500),
   })  : _hasToken = hasToken ?? (() => SharedPref.isLoggedIn),
         _fetchCurrentUser = fetchCurrentUser ?? AuthRepo.fetchCurrentUser,
         _saveUser = saveUser ?? SharedPref.saveUserMap,
