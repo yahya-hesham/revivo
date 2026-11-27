@@ -12,13 +12,16 @@ import 'core/utils/bloc_observer.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SharedPref.init();
+  await Future.wait<void>([
+    SharedPref.init(),
+    EasyLocalization.ensureInitialized(),
+  ]);
+
   DioProvider.init(
     onUnauthorizedCallback: () {
       AppRouter.routes.go(Routes.sessionExpired);
     },
   );
-  await EasyLocalization.ensureInitialized();
 
   Bloc.observer = MyBlocObserver();
 

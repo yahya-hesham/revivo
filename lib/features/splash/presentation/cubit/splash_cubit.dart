@@ -12,31 +12,36 @@ import 'splash_state.dart';
 /// - Offline/network error → [SplashError] (keeps token, allows retry)
 class SplashCubit extends Cubit<SplashState> {
   SplashCubit({
+    Future<bool> Function()? loadToken,
     bool Function()? hasToken,
     Future<UserModel> Function()? fetchCurrentUser,
     Future<void> Function(Map<String, dynamic> user)? saveUser,
     Future<void> Function()? clearSession,
     Duration minDisplayDuration = const Duration(milliseconds: 2500),
-  })  : _hasToken = hasToken ?? (() => SharedPref.isLoggedIn),
+  })  : _loadToken = loadToken ??
+            (hasToken != null
+                ? () async => hasToken()
+                : SharedPref.loadSessionToken),
         _fetchCurrentUser = fetchCurrentUser ?? AuthRepo.fetchCurrentUser,
         _saveUser = saveUser ?? SharedPref.saveUserMap,
         _clearSession = clearSession ?? SharedPref.clearSession,
         _minDisplayDuration = minDisplayDuration,
         super(const SplashInitial());
 
-  final bool Function() _hasToken;
+  final Future<bool> Function() _loadToken;
   final Future<UserModel> Function() _fetchCurrentUser;
   final Future<void> Function(Map<String, dynamic> user) _saveUser;
   final Future<void> Function() _clearSession;
   final Duration _minDisplayDuration;
 
   Future<void> checkSession() async {
-    final loggedIn = _hasToken();
-    emit(SplashLoading(isCheckingRemote: loggedIn));
-
     final delayFuture = _minDisplayDuration > Duration.zero
         ? Future<void>.delayed(_minDisplayDuration)
         : Future<void>.value();
+
+    final loggedIn = await _loadToken();
+    if (isClosed) return;
+    emit(SplashLoading(isCheckingRemote: loggedIn));
 
     if (!loggedIn) {
       await delayFuture;

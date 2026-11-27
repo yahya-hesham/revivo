@@ -4,11 +4,12 @@ import 'secure_storage.dart';
 
 /// Centralized local persistence wrapper.
 /// Non-sensitive preferences live in [SharedPreferences]; the JWT access token
-/// is stored in [SecureStorage] (OS keychain / encrypted keystore) and cached
-/// in memory after [init] for synchronous access.
+/// is stored in [SecureStorage] (OS keychain / encrypted keystore) and loaded
+/// during the Splash phase so cold-start rendering is never blocked on Keychain.
 abstract final class SharedPref {
   static late SharedPreferences _prefs;
   static String _cachedToken = '';
+  static bool _tokenLoaded = false;
 
   static const String kUserJson = 'revivo_user_json';
   static const String kThemeMode = 'revivo_theme_mode';
@@ -16,7 +17,15 @@ abstract final class SharedPref {
 
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
-    _cachedToken = (await SecureStorage.getToken()) ?? '';
+  }
+
+  /// Loads the JWT from OS secure storage if not already loaded.
+  static Future<bool> loadSessionToken() async {
+    if (!_tokenLoaded) {
+      _cachedToken = (await SecureStorage.getToken()) ?? '';
+      _tokenLoaded = true;
+    }
+    return isLoggedIn;
   }
 
   static bool get isLoggedIn => _cachedToken.isNotEmpty;
@@ -25,11 +34,13 @@ abstract final class SharedPref {
 
   static Future<void> saveToken(String token) async {
     _cachedToken = token;
+    _tokenLoaded = true;
     await SecureStorage.saveToken(token);
   }
 
   static Future<void> clearSession() async {
     _cachedToken = '';
+    _tokenLoaded = true;
     await SecureStorage.deleteToken();
     await _prefs.remove(kUserJson);
   }
