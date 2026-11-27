@@ -183,8 +183,8 @@ flutter run --dart-define=API_BASE_URL=http://localhost:5269
 | 1 | Splash & session bootstrap (`/auth/me`, 401 redirect wiring) | ✅ Done | `dart analyze` & unit tests passing |
 | 2 | Auth (Welcome, Register, Login, Auth error, Session expired) | ✅ Done | Page `2:3`, `dart analyze` & unit tests passing |
 | 3 | Dashboard shell (Garage / Alerts / Account tabs) | ✅ Done | Navigation `3:54`, `dart analyze` & widget test passing |
-| 4 | Garage & add vehicle (catalog, image, dashboard, settings) | ⏳ Next | Page `2:4` |
-| 5 | Maintenance, schedules, warranties | ⬜ | Page `2:5` |
+| 4 | Garage & add vehicle (catalog, image, dashboard, settings) | ✅ Done | Page `2:4`, `dart analyze` & tests passing |
+| 5 | Maintenance, schedules, warranties | ⏳ Next | Page `2:5` |
 | 6 | Odometer & statistics | ⬜ | Page `2:6` |
 | 7 | Alerts & preferences | ⬜ | Page `2:7` |
 | 8 | Sharing & invitations | ⬜ | Page `2:7` |

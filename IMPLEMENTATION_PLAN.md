@@ -103,7 +103,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 4 — Garage, Add Vehicle & Vehicle Dashboard ⏳ Next
+## Milestone 4 — Garage, Add Vehicle & Vehicle Dashboard ✅ Done
 
 **Goal:** Owned & shared vehicle lists, 3-step car catalog wizard + Unsplash preview, Vehicle Dashboard, and Vehicle Settings.
 
@@ -131,7 +131,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 5 — Maintenance, Schedules & Warranties
+## Milestone 5 — Maintenance, Schedules & Warranties ⏳ Next
 
 **Goal:** Paginated service history, record/edit service with partial-save recovery, periodic schedules, upcoming items, and warranties.
 

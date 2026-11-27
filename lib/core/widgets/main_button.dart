@@ -61,8 +61,8 @@ class MainButton extends StatelessWidget {
 
     final style = variant == MainButtonVariant.danger
         ? ElevatedButton.styleFrom(
-            backgroundColor: AppColors.red,
-            foregroundColor: AppColors.white,
+            backgroundColor: AppColors.redSoft,
+            foregroundColor: AppColors.red,
           )
         : null;
 
@@ -78,7 +78,7 @@ class MainButton extends StatelessWidget {
     return switch (variant) {
       MainButtonVariant.primary => scheme.onPrimary,
       MainButtonVariant.secondary => scheme.primary,
-      MainButtonVariant.danger => AppColors.white,
+      MainButtonVariant.danger => AppColors.red,
     };
   }
 }
