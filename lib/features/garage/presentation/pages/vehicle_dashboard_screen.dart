@@ -187,11 +187,60 @@ class VehicleDashboardScreen extends StatelessWidget {
                     const SizedBox(height: AppConstants.space12),
                     MainButton(
                       label: 'garage.record_maintenance'.tr(),
-                      onPressed: () {
-                        showMyDialog(context, 'garage.milestone_next_hint'.tr());
+                      onPressed: () async {
+                        final saved = await pushTo<bool>(
+                          context,
+                          Routes.recordMaintenancePath(vehicle.id),
+                        );
+                        if (saved == true && context.mounted) {
+                          context
+                              .read<VehicleDashboardCubit>()
+                              .loadDashboard(vehicleId);
+                        }
                       },
                     ),
                   ],
+                  const SizedBox(height: AppConstants.space12),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: MainButton(
+                          label: 'maintenance.history_title'.tr(),
+                          variant: MainButtonVariant.secondary,
+                          onPressed: () async {
+                            final changed = await pushTo<bool>(
+                              context,
+                              Routes.maintenanceHistoryPath(vehicle.id),
+                              extra: {
+                                'vehicleTitle': vehicle.catalogTitle,
+                                'isShared': vehicle.isShared,
+                              },
+                            );
+                            if (changed == true && context.mounted) {
+                              context
+                                  .read<VehicleDashboardCubit>()
+                                  .loadDashboard(vehicleId);
+                            }
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: AppConstants.space12),
+                      Expanded(
+                        child: MainButton(
+                          label: 'warranties.title_short'.tr(),
+                          variant: MainButtonVariant.secondary,
+                          onPressed: () => pushTo(
+                            context,
+                            Routes.warrantiesPath(vehicle.id),
+                            extra: {
+                              'vehicleTitle': vehicle.catalogTitle,
+                              'isShared': vehicle.isShared,
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: AppConstants.space24),
                   Text(
                     'garage.next_up'.tr(),

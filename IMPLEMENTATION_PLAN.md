@@ -131,7 +131,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 5 — Maintenance, Schedules & Warranties ⏳ Next
+## Milestone 5 — Maintenance, Schedules & Warranties ✅ Done
 
 **Goal:** Paginated service history, record/edit service with partial-save recovery, periodic schedules, upcoming items, and warranties.
 
@@ -157,7 +157,7 @@ To minimize token usage during implementation:
 
 ---
 
-## Milestone 6 — Odometer & Statistics
+## Milestone 6 — Odometer & Statistics ⏳ Next
 
 **Goal:** Nondecreasing odometer check-in, paginated mileage history, spending & driving insights with custom 12-month bar chart.
 
